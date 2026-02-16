@@ -94,18 +94,10 @@ The UI handles:
 
 ---
 
-## Trade-offs
-
-- Authentication was not implemented.
-- Automated tests were not added due to time constraints.
-- Only core assignment features were prioritized.
-
----
-
 ## Deployment
 
 Backend:
-`<your-backend-url>`
+https://expensetracker121.onrender.com
 
 Frontend:
-`<your-frontend-url>`
+https://expensetracker121-1.onrender.com
