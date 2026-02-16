@@ -1,0 +1,41 @@
+import apiClient from '@/lib/api-client';
+import { API_ENDPOINTS } from '@/config/api.config';
+import { Expense, CreateExpenseDTO } from '@/types/expense';
+
+export const expenseApi = {
+  /**
+   * Get all expenses with optional filters
+   */
+  getExpenses: async (category?: string, sort?: string): Promise<Expense[]> => {
+    const params: Record<string, string> = {};
+    if (category) params.category = category;
+    if (sort) params.sort = sort;
+
+    const response = await apiClient.get<Expense[]>(API_ENDPOINTS.expenses, { params });
+    return response.data;
+  },
+
+  /**
+   * Create a new expense
+   */
+  createExpense: async (data: CreateExpenseDTO): Promise<Expense> => {
+    const response = await apiClient.post<Expense>(API_ENDPOINTS.expenses, data);
+    return response.data;
+  },
+
+  /**
+   * Get expense by ID
+   */
+  getExpenseById: async (id: string): Promise<Expense> => {
+    const response = await apiClient.get<Expense>(`${API_ENDPOINTS.expenses}/${id}`);
+    return response.data;
+  },
+
+  /**
+   * Health check
+   */
+  healthCheck: async (): Promise<{ status: string; timestamp: string }> => {
+    const response = await apiClient.get(API_ENDPOINTS.health);
+    return response.data;
+  },
+};

@@ -1,0 +1,30 @@
+{
+  "name": "expense-tracker-backend",
+  "version": "1.0.0",
+  "description": "Expense Tracker Backend API",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "db:setup": "node dist/config/setup-db.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "@types/pg": "^8.11.10",
+    "typescript": "^5.6.3",
+    "ts-node": "^10.9.2",
+    "nodemon": "^3.1.7"
+  }
+}
